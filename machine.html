@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The machine · Hannove</title>
+  <link rel="icon" href="image/favicon-32.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="image/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* The useless machine: a box, a lid, an arm and a switch */
+    .machine {
+      max-width: 24rem;
+      margin: 2rem auto;
+    }
+
+    .box {
+      position: relative;
+      height: 230px;
+      background: #2d2620;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    /* the lid on top of the box */
+    .lid {
+      position: absolute;
+      top: -4px;
+      left: 15%;
+      width: 70%;
+      height: 44px;
+      background: #c9a86a;
+      border-radius: 8px 8px 0 0;
+      transform-origin: top center;
+      transition: transform .25s ease;
+      z-index: 2;
+    }
+
+    .lid.open {
+      transform: rotate(-64deg);
+    }
+
+    /* the arm that lives inside the lid */
+    .arm {
+      position: absolute;
+      bottom: 10px;
+      right: 6px;
+      width: 52px;
+      height: 14px;
+      background: #e8d3a3;
+      border-radius: 7px;
+      transform: scaleX(0);
+      transform-origin: right center;
+      transition: transform .18s ease;
+    }
+
+    .arm.out {
+      transform: scaleX(1);
+    }
+
+    /* the switch on the face of the box */
+    .face {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1.2rem;
+      text-align: center;
+    }
+
+    .speech {
+      margin: 0 0 .8rem;
+      min-height: 1.4em;
+      color: #f3ede4;
+    }
+
+    .switch {
+      border: 0;
+      border-radius: 99px;
+      padding: .45em 1.6em;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      background: #6b7280;
+      cursor: pointer;
+    }
+
+    .switch.on {
+      background: #16a34a;
+    }
+
+    .counter {
+      text-align: center;
+      color: #6b7280;
+    }
+
+    /* the 10-second challenge */
+    .game {
+      max-width: 24rem;
+      margin: 2rem auto;
+      text-align: center;
+      border-top: 1px solid #dcd8d0;
+      padding-top: 1.5rem;
+    }
+
+    .game .status {
+      min-height: 1.5em;
+      font-weight: 700;
+      color: #c2410c;
+    }
+
+    .start {
+      border: 0;
+      border-radius: 99px;
+      padding: .5em 1.6em;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      background: #0369a1;
+      cursor: pointer;
+    }
+
+    .start:disabled {
+      background: #9ca3af;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header id="site-header"></header>
+
+  <main>
+    <h1>The machine</h1>
+    <p>A useless machine: its only job is to switch itself off. Your only job is to annoy it.</p>
+
+    <section class="machine" aria-label="The useless machine">
+      <div class="box">
+        <div class="lid" id="lid"><span class="arm" id="arm"></span></div>
+        <div class="face">
+          <p class="speech" id="speech" aria-live="polite">…</p>
+          <button class="switch" id="switch" type="button" aria-pressed="false">OFF</button>
+        </div>
+      </div>
+      <p class="counter">The machine has refused <strong id="refused">0</strong> times.</p>
+    </section>
+
+    <section class="game" aria-label="The 10-second challenge">
+      <h2>The 10-second challenge</h2>
+      <p>Flip it on as many times as you can before the arm gets you. It gets faster every time.</p>
+      <p class="status" id="gameStatus" role="status" aria-live="polite">Ready?</p>
+      <p><button class="start" id="start" type="button">Start the challenge</button></p>
+      <p>Best: <strong id="best">0</strong></p>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="nav.js"></script>
+  <script src="machine.js"></script>
+</body>
+</html>
