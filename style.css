@@ -87,3 +87,31 @@ nav a:hover {
   border-top: 1px solid #dcd8d0;
   color: #6b7280;
 }
+
+/* 7 · The random-quote hero at the top of the quotes page */
+.hero-quote {
+  background: #fff;
+  border: 1px solid #dcd8d0;
+  border-left: 4px solid #c2410c;
+  border-radius: 10px;
+  padding: 1.2em 1.4em;
+  margin-bottom: 2rem;
+}
+
+.hero-quote h2 {
+  margin: 0 0 .6rem;
+  font-size: .85rem;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.hero-quote blockquote {
+  margin: 0 0 .6rem;
+  font-size: 1.25rem;
+}
+
+.hero-quote p {
+  margin: 0;
+  color: #6b7280;
+}

@@ -14,6 +14,13 @@
   <main>
     <h1>Quotes</h1>
     <p>Things worth reading twice — each with who said it, and where.</p>
+    <section class="hero-quote" aria-labelledby="random-heading">
+      <h2 id="random-heading">A quote, at random</h2>
+      <blockquote id="randomQuote"></blockquote>
+      <p id="randomSource"></p>
+    </section>
+
+
 
 
     <article class="quote">
@@ -173,6 +180,31 @@
   <footer id="site-footer"></footer>
 
   <script src="nav.js"></script>
+  <script>
+    // One of the fifteen quotes, chosen at random on every load.
+    // 每次打开页面，从十五条里随机抽一条放在最上面。
+    const RANDOM_QUOTES = [
+    { q: "This is for everyone.", s: "Tim Berners-Lee, London Olympic opening ceremony, 2012" },
+    { q: "千里之行，始于足下。 A journey of a thousand miles begins beneath your feet.", s: "Laozi, Tao Te Ching, chapter 64" },
+    { q: "“If you tell the truth, you don't have to remember anything.”", s: "Mark Twain, Mark Twain's Notebook, 1894" },
+    { q: "“The only way to do great work is to love what you do.”", s: "Steve Jobs, Stanford University Commencement Address, 2005" },
+    { q: "“In the middle of every difficulty lies opportunity.”", s: "Albert Einstein, Letter to a friend, 1932" },
+    { q: "“The best way to predict the future is to invent it.”", s: "Alan Kay, Speech at the 1982 ACM National Conference" },
+    { q: "“Simplicity is the ultimate sophistication.”", s: "Leonardo da Vinci, Letter to Francesco Melzi, 1510" },
+    { q: "“The future belongs to those who believe in the beauty of their dreams.”", s: "Eleanor Roosevelt, Speech at the 1948 UN General Assembly" },
+    { q: "“Do not go where the path may lead, go instead where there is no path and leave a trail.”", s: "Ralph Waldo Emerson, Essays: First Series, 1841" },
+    { q: "“The only limit to our realization of tomorrow will be our doubts of today.”", s: "Franklin D. Roosevelt, Speech at the White House, 1933" },
+    { q: "“The best way to find yourself is to lose yourself in the service of others.”", s: "Mahatma Gandhi, Speech at the Indian National Congress, 1920" },
+    { q: "“The only thing we have to fear is fear itself.”", s: "Franklin D. Roosevelt, Inaugural Address, 1933" },
+    { q: "“The best way to predict the future is to create it.”", s: "Peter Drucker, Management Challenges for the 21st Century, 1999" },
+    { q: "“Less is more.”", s: "Ludwig Mies van der Rohe, architectural principle formulated around 1928" },
+    { q: "“Knowledge is power.”", s: "Francis Bacon, The Advancement of Learning, 1605" }
+    ];
+    const pick = RANDOM_QUOTES[Math.floor(Math.random() * RANDOM_QUOTES.length)];
+    document.getElementById("randomQuote").textContent = pick.q;
+    document.getElementById("randomSource").textContent = "— " + pick.s;
+  </script>
+
 
 </body>
 </html>
