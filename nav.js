@@ -10,7 +10,7 @@ const NAV_HTML = `
 
   <ul class="links">
     <li><a href="index.html">Home</a></li>
-    <li><a href="quote.html">Quotes</a></li>
+    <li><a href="quotes.html">Quotes</a></li>
     <li><a href="project.html">Project ideas</a></li>
     <li><a href="about.html">About</a></li>
   </ul>
